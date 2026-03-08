@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mi Chaparrita ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@1,600&family=Charm&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="stars-bg"></div>
+
+    <svg width="0" height="0" class="svg-defs">
+        <defs>
+            <clipPath id="heart-clip" clipPathUnits="objectBoundingBox">
+                <path d="M0.5,0.16 C0.61,0.02,0.8,-0.02,0.91,0.06 C1.08,0.21,1.06,0.5,0.85,0.73 C0.71,0.89,0.5,1,0.5,1 C0.5,1,0.29,0.89,0.15,0.73 C-0.06,0.5,-0.08,0.21,0.09,0.06 C0.2, -0.02,0.39,0.02,0.5,0.16"></path>
+            </clipPath>
+        </defs>
+    </svg>
+
+    <div id="pantalla-login" class="login-overlay">
+        <div class="login-box flotante">
+            <div id="login-form">
+                <h2>Acceso A Nuestra Historia</h2>
+                <p>Solo para la dueña de mi corazón.</p>
+                <input type="text" id="login-user" placeholder="Usuario">
+                <input type="password" id="login-pass" placeholder="Contraseña">
+                <button onclick="verificarLogin()" class="btn-login-magico">Desbloquear Magia <span class="oro-emoji">✨</span></button>
+                <p id="login-error" class="oculto">Acceso denegado, princesa.</p>
+            </div>
+            <div id="login-loading" class="oculto">
+                <div class="magia-container oro-emoji">
+                    <div class="corona-princesa">👑</div>
+                    <div class="corazon-encantado">💖</div>
+                    <div class="chispa chispa1">✨</div>
+                    <div class="chispa chispa2">✨</div>
+                    <div class="chispa chispa3">✨</div>
+                </div>
+                <p class="texto-magico">Abriendo tu cuento de hadas...</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-content" class="oculto fade-in-up">
+        
+        <div id="cascada-corazones"></div>
+
+        <div class="tarjeta-principal flotante">
+            <header>
+                <h1>Nuestra Historia</h1>
+                <p class="fecha-especial"><span class="oro-emoji">❤️</span> 21 de Marzo <span class="oro-emoji">❤️</span><br><span>Todo Empezó Este Día</span></p>
+                <p>Cada momento contigo es mi favorito.</p>
+            </header>
+
+            <div class="foto-perfil">
+                <div class="heart-mask">
+                    <img src="img/guapos.jpg" alt="Nosotros" onclick="latirFoto(this)">
+                </div>
+            </div>
+
+            <div class="contador-amor">
+                <h3>Tiempo amándote:</h3>
+                <div id="reloj-vivo">Calculando tiempo...</div>
+            </div>
+
+            <main class="galeria-botones">
+                <button class="btn-recuerdo" onclick="abrirRecuerdo('foto', ['img/ramo.jpg', 'img/ramo2.jpg', 'img/ramo3.jpg'], 'Me Hiciste La Persona Más Feliz Con Tu SÍ')">Mi Amor Con Un Ramo <span class="oro-emoji">💐</span></button>
+                <button class="btn-recuerdo" onclick="abrirRecuerdo('video', ['vid/nuestro_video.mp4'], 'Pasaría Más Vergüenza Por Ti <span class=\'oro-emoji\'>🎬</span>')">Un video especial <span class="oro-emoji">🎬</span></button>
+                <button class="btn-recuerdo" onclick="abrirRecuerdo('foto', ['img/carrito.jpg', 'img/carrito2.jpg', 'img/carrito3.jpg'], 'Nunca Olvidaremos Nuestro Mejor Amigo Que Nos Acercó Más <span class=\'oro-emoji\'>🚗</span>')">Nuestro Mejor Amigo <span class="oro-emoji">🚘</span></button>
+                <button class="btn-recuerdo" onclick="abrirRecuerdo('foto', ['img/jalowin.jpg', 'img/jalowin2.jpg', 'img/jalowin3.jpg'], 'Mi Primer jawolin Contigo <span class=\'oro-emoji\'>✨</span>')">jawolin <span class="oro-emoji">🎃✨</span></button>
+                <button class="btn-recuerdo" onclick="abrirRecuerdo('foto', ['img/mejorfoto.jpg'], 'Amo Esta Foto Como Yo Te Amo a Ti <span class=\'oro-emoji\'>✨</span>')">Mi Foto Favorita <span class="oro-emoji">📸✨</span></button>
+                <button class="btn-recuerdo" onclick="abrirRecuerdo('foto', ['img/lugarseguro.jpg'], 'Eres Mi Mayor Refugio En Buenas Y Malas')">Mi Lugar Seguro <span class="oro-emoji">🏰❤️</span></button>
+                <button class="btn-recuerdo" onclick="abrirRecuerdo('foto', ['img/regalos.jpg', 'img/regalos2.jpg', 'img/regalos3.jpg', 'img/regalos4.jpg', 'img/primera_rosa.jpg'], 'Lo Que te Regale')">Los Regalos Que Te Di <span class="oro-emoji">🎁🌹</span></button>
+                <button class="btn-recuerdo" onclick="abrirRecuerdo('foto', ['img/estas_hermosa.jpg', 'img/estas_hermosa2.jpg', 'img/estas_hermosa3.jpg', 'img/estas_hermosa3.jpg'], 'La Mas Hermosa De La Vida')">Eres Una Princesa <span class="oro-emoji">👑👸🏽</span></button>
+                <button class="btn-recuerdo ancho-completo" onclick="abrirRecuerdo('mixto', ['img/salidas.jpg', 'img/salidas2.jpg', 'img/salidas3.jpg', 'img/salidas4.jpg', 'img/salidas5.jpg','vid/te_amo.mp4','img/Nuestra_primera_salida.jpg ', 'img/pintando_ando2.jpg','vid/pintando_ando.mp4'], 'El Tiempo De Calidad Contigo Es Lo Unico Que Quiero.')">Salidas Documentadas <span class="oro-emoji">📸👩🏾‍🤝‍👨🏽</span></button>
+
+                <button class="btn-recuerdo ancho-completo" style="border: 1px solid var(--oro); background: rgba(212, 175, 55, 0.1);" onclick="abrirCarta()"><span class="oro-emoji">📖</span> El Diario de Nuestro Amor</button>
+                <button class="btn-recuerdo ancho-completo" style="border: 1px solid var(--oro); background: rgba(212, 175, 55, 0.1);" onclick="abrirLineaTiempo()"><span class="oro-emoji">⏳</span> Nuestra Línea del Tiempo</button>
+
+                <button id="btn-motivos" class="btn-recuerdo ancho-completo" onclick="siguienteMotivo()">¿Por qué te amo? (Tócame) <span class="oro-emoji">💭</span></button>
+                <button class="btn-recuerdo ancho-completo btn-ruleta-oro" onclick="tirarRuleta()"><span class="oro-emoji">🎰</span> Tirar Ruleta de Premios <span class="oro-emoji">🎁</span></button>
+            </main>
+
+            <button class="btn-hacker" onclick="iniciarHackeo()">>_ Acceder a Archivo Clasificado <span class="oro-emoji">💻</span></button>
+
+            <footer>
+                <p class="firma-premium"><span class="oro-emoji">❤️</span> Programado al 100% Por El Amor de tu Vida <span class="oro-emoji">❤️</span></p>
+            </footer>
+        </div>
+
+        <div id="modal-recuerdo" class="modal oculto">
+            <div class="modal-content-wrapper flotante">
+                <button class="cerrar-modal" onclick="cerrarRecuerdo()">&times;</button>
+                <div class="media-container" id="contenedor-3d">
+                    <button class="nav-btn prev oculto" id="btn-prev" onclick="cambiarMultimedia(-1)">&#10094;</button>
+                    <button class="nav-btn next oculto" id="btn-next" onclick="cambiarMultimedia(1)">&#10095;</button>
+                    <img class="modal-contenido oculto" id="imagen-ampliada" style="transition: transform 0.1s ease-out;">
+                    <video class="modal-contenido oculto" id="video-ampliado" controls autoplay muted loop>
+                        <source src="" type="video/mp4">
+                    </video>
+                </div>
+                <div class="caption-container">
+                    <div id="texto-recuerdo"></div>
+                    <div class="decorative-hearts oro-emoji">❤️❤️</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-slot-machine" class="modal oculto">
+            <div class="slot-machine-body flotante">
+                <div class="slot-machine-frame">
+                    <div class="slot-machine-header">
+                        <h2>MÁQUINA DE PREMIOS</h2>
+                        <span class="cerrar-slot" onclick="cerrarSlotMachine()">&times;</span>
+                    </div>
+                    <div class="reels-window">
+                        <div class="payline"></div> 
+                        <div class="reels-container" id="reels-container">
+                            <div class="reel" id="reel-1"><div class="reel-strip" id="strip-1"></div></div>
+                            <div class="reel" id="reel-2"><div class="reel-strip" id="strip-2"></div></div>
+                            <div class="reel" id="reel-3"><div class="reel-strip" id="strip-3"></div></div>
+                        </div>
+                    </div>
+                    <button class="spin-handle" onclick="girarSlotMachine()">¡JUGAR! <span class="oro-emoji">🎰</span></button>
+                    <div id="slot-result" class="oculto" style="position: relative;">
+                        <h3>¡Felicidades! <span class="oro-emoji">🎉</span></h3>
+                        <p id="slot-reward-text"></p>
+                        <span class="slot-instrucciones">(Tómale captura para cobrar tu premio)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-terminal" class="modal oculto">
+            <div class="terminal-box">
+                <div class="terminal-header">
+                    <span>root@tec2-cybersec:~</span>
+                    <span class="cerrar-terminal" onclick="cerrarTerminal()">[X]</span>
+                </div>
+                <div class="terminal-body" id="terminal-texto"></div>
+                <div id="zona-password" class="oculto">
+                    <span class="prompt-verde">> Ingrese clave de desencriptación: </span>
+                    <input type="password" id="input-pass" placeholder="****">
+                    <button onclick="verificarPassword()" class="btn-enter">ENTER</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-carta" class="modal oculto">
+            <div class="modal-content-wrapper flotante carta-premium">
+                <button class="cerrar-modal" onclick="cerrarCarta()">&times;</button>
+                
+                <div class="carta-header">
+                    <h2>El Diario de Nuestro Amor</h2>
+                    <div class="divisor-oro"></div>
+                </div>
+                
+                <div class="carta-body">
+                    <p><span class="letra-capital">R</span>ecuerdo perfectamente el día que todo empezó. Todo comenzó el día que decidimos jugar al UNO. Ese día fue divertido; pregunté si podía jugar, me dijeron que sí, y ahí empezó todo. Fue cuando poco a poco empecé a mirarte más y más, como no tienes idea.</p>
+                    
+                    <p>Después te acercaste y preguntaste "¿cómo se llaman?" mientras íbamos de camino a sacar unas copias. Tras eso, mi Armando preguntó que a ti se te notaba que yo te gustaba y le dije "¿será?". Entonces fue cuando me animé. Empezamos a hablar por TikTok y ahí todo cambió drásticamente para mí.</p>
+                    
+                    <p>Me preguntaste cuál era mi cosa favorita, te dije que Dragon Ball, y entonces me dijiste "el lunes lo ves". Te rogué que me dijeras y no lo hiciste. Al día siguiente me contaste que te habías hecho unos aretes en la impresora 3D y te dije que resaltaban tu belleza. El lunes fue cuando todo pasó; me empecé a emocionar poco a poco.</p>
+                    
+                    <p>Al día siguiente de eso te robé un beso... y fue lo mejor, porque fue mi primer beso y eres mi primer amor. Obvio, siempre lo serás, tenlo en mente. Al salir de clases nos fuimos a un parque, platicamos, nos besamos, y el 21 de marzo del 2025 fue cuando decidí declarar mi amor por ti.</p>
+                    
+                    <p>Desde entonces tú y yo hemos pasado peleas, risas y emociones intensas. Aunque no siempre llegue a estar presente, no significa que no te ame; al contrario, te amo más que nunca porque es algo que no puedo cambiar. Ya eres mi tesoro más hermoso. Hemos discutido, nos hemos besado bajo la lluvia, hemos hecho el ridículo, pintado juntos, salido y compartido momentos especiales de calidad.</p>
+                    
+                    <p>O sea, eres lo mejor que me puede haber pasado en este mundo. Espero que puedas seguir conmigo, ya que estoy intentando cambiar. He sido una persona muy diferente a como era antes. Tú me cambiaste, me moldeaste a tu manera y me encanta.</p>
+
+                    <p>Si me preguntas qué es lo que realmente siento por ti, te diría que eres mi paz en medio del caos. Eres mi lugar seguro. A veces me cuesta expresar con palabras todo lo que llevo dentro, pero quiero que sepas que cada detalle de esta página, cada línea de código y cada esfuerzo que hago, es para demostrarte que eres mi prioridad.</p>
+
+                    <p>Me haces querer ser un mejor hombre, superarme cada día y darte el futuro que te mereces. Sé que no soy perfecto y que seguiremos teniendo nuestros tropiezos, pero no hay un solo día en el que no despierte dando gracias por tenerte a mi lado, mi Chaparrita hermosa.</p>
+
+                    <p>Este 21 de marzo y todos los días que vengan, quiero pasarlos tomando tu mano. Eres mi primer amor y estoy decidido a cuidarte para que seas el único y el último. Gracias por ser mi novia, mi mejor amiga y la dueña de mi corazón.</p>
+                    
+                    <p style="text-align: center; margin-top: 40px; font-family: 'Charm', cursive; font-size: 2rem; color: var(--oro);">Te amo infinitamente,<br>Jesús Alexis</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-timeline" class="modal oculto">
+            <div class="modal-content-wrapper flotante carta-premium">
+                <button class="cerrar-modal" onclick="cerrarLineaTiempo()">&times;</button>
+                
+                <div class="carta-header">
+                    <h2>Nuestra Historia</h2>
+                    <div class="divisor-oro"></div>
+                </div>
+                
+                <div class="timeline-body">
+                    <div class="timeline-container">
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>La Partida de UNO <span class="oro-emoji">🃏</span></h3>
+                                <p>Pregunté si podía jugar y me dijeron que sí. Ahí empezó todo, no podía dejar de mirarte.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>La Conexión <span class="oro-emoji">📱</span></h3>
+                                <p>Las fotocopias, la pregunta de "¿cómo se llaman?", la duda de Armando y los primeros mensajes por TikTok.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>El Coqueteo <span class="oro-emoji">✨</span></h3>
+                                <p>Nuestras pláticas de Dragon Ball, el misterio de "el lunes lo ves" y esos aretes de impresora 3D que resaltaban tu belleza.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>El Primer Beso <span class="oro-emoji">💋</span></h3>
+                                <p>El momento en el que me animé a robarte ese beso. Mi primer beso y el inicio de mi primer amor real.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>21 de Marzo <span class="oro-emoji">❤️</span></h3>
+                                <p>El parque, las pláticas y el día en que decidí declarar mi amor por ti oficialmente. Nuestro gran día.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Nuestro Presente <span class="oro-emoji">🌟</span></h3>
+                                <p>Besos bajo la lluvia, pintar juntos, superar peleas y moldearnos para ser mejores. Eres mi lugar seguro.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <audio id="musica-fondo" loop>
+        <source src="audio/epic.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
